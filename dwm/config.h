@@ -11,8 +11,8 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetbrainsMono:size=9:antilias=true",  "NotoColorEmoji:pixelsize=12:autohint=true"};
-static const char dmenufont[]       = "Jetbrains mono:size=9";
+static const char *fonts[]          = { "Monospace:size=9:antilias=true",  "NotoColorEmoji:pixelsize=12:autohint=true"};
+static const char dmenufont[]       = "Monospace:size=9";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -22,7 +22,7 @@ static const char dark_red[]        = "#770000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  dark_red  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan },
 };
 
 typedef struct {
@@ -78,21 +78,22 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "termite", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
 	{ MODKEY|ShiftMask,		XK_p,		spawn,		{.v = (const char*[]){ "turnoffmenu.sh", NULL } } },	
-	{ MODKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ "record", NULL } } },	
+	{ MODKEY|ShiftMask,		XK_a,		spawn,		{.v = (const char*[]){ "record", NULL } } },	
+	{ MODKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ "mouseacell.sh", NULL } } },	
 	{ MODKEY,			XK_s,		spawn,		{.v = (const char*[]){ "screenshots.sh", NULL } } },	
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
@@ -110,9 +111,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+//	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+//	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = +1 } },
+//	{ MODKEY,             		XK_equal,  setgaps,        {.i = 6  } },
 	{ MODKEY,			XK_o,	togglescratch,	{.ui =0} },
 	{ MODKEY,			XK_n,	togglescratch,	{.ui =1} },
 	TAGKEYS(                        XK_1,                      0)
