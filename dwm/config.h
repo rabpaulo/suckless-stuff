@@ -24,14 +24,14 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const char *fonts[]          = { "Mono:size=8:antilias=true",  "NotoColorEmoji:pixelsize=12:autohint=true"};
 
 static const char black[]	= "#222222";
-static const char titlecolor[]      = "#ffffff";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static char selbgcolor[]            = "#005577";
-static const char *colors[][3]      = {
+static const char titlecolor[]	= "#ffffff";
+static const char col_gray4[]	= "#eeeeee";
+static const char col_cyan[]	= "#634782";
+static const char selbgcolor[]	= "#634782";
+static const char *colors[][3]= {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { titlecolor, black, black },
-	[SchemeSel]  = { col_gray4, col_cyan,  selbgcolor  },
+	[SchemeSel]  = { col_gray4, col_cyan,  selbgcolor },
 };
 
 typedef struct {
