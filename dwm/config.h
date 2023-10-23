@@ -23,7 +23,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const char *fonts[]          = { "Mono:size=8:antilias=true",  "NotoColorEmoji:pixelsize=12:autohint=true"};
 
-static const char black[]	= "#222222";
+static const char black[]	= "#000000";
 static const char titlecolor[]	= "#ffffff";
 static const char col_gray4[]	= "#eeeeee";
 static const char col_cyan[]	= "#634782";
