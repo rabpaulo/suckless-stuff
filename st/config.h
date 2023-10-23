@@ -5,9 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=14:antialias=true:autohint=true";
+static char *font = "Mono:pixelsize=12:antialias=true:autohint=true";
 static char *font2[] = { "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
-static int borderpx = 0;
+static int borderpx = 1;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -137,7 +137,7 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
 	"#d8d8d8", /* default foreground colour */
-	"#141414", /* default background colour */
+	"#202020", /* default background colour */
 };
 
 
