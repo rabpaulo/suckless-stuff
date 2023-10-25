@@ -5,10 +5,7 @@ static const Block blocks[] = {
     {"", "~/.local/bin/sb/cmus.sh", 		2,	0},
     {"", "~/.local/bin/sb/keeblayout.sh", 	1,	0},
     {"", "~/.local/bin/sb/micebattery.sh", 	5,	0},
-    {"", "~/.local/bin/sb/cpu.sh", 		2,	0},
-    {"", "~/.local/bin/sb/memory.sh", 		2,	0},
-    {"", "~/.local/bin/sb/disk.sh", 		10,	0},
-    {"", "~/.local/bin/sb/ethernet.sh", 	30,	0},
+    {"", "~/.local/bin/sb/nettraf", 		5,	0},
     {"", "~/.local/bin/sb/weather.sh", 		300,	5},
     {"", "date '+%R %a, %d %b'",		2,	0}
 };
