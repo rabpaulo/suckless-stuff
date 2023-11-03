@@ -5,6 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
+
 static char *font = "Mono:pixelsize=12:antialias=true:autohint=true";
 static char *font2[] = { "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 1;
@@ -107,39 +108,39 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.85;
+float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
+
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"#181818",
-	"#ab4642",
-	"#a1b56c",
-	"#f7ca88",
-	"#7cafc2",
-	"#ba8baf",
-	"#86c1b9",
-	"#d8d8d8",
+    /* 8 normal colors */
+    "#222222",
+    "#ac4142",
+    "#90a959",
+    "#f4bf75",
+    "#6a9fb5",
+    "#aa759f",
+    "#75b5aa",
+    "#d0d0d0",
 
-	/* 8 bright colors */
-	"#585858",
-	"#ab4642",
-	"#a1b56c",
-	"#f7ca88",
-	"#7cafc2",
-	"#ba8baf",
-	"#86c1b9",
-	"#f8f8f8",
+    /* 8 bright colors */
+    "#505050",
+    "#ac4142",
+    "#90a959",
+    "#f4bf75",
+    "#6a9fb5",
+    "#aa759f",
+    "#75b5aa",
+    "#f5f5f5",
 
-	[255] = 0,
+    [255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"#d8d8d8", /* default foreground colour */
-	"#202020", /* default background colour */
+    /* more colors can be added after 255 to use with DefaultXX */
+    "#cccccc",
+    "#555555",
+    "#d0d0d0", /* default foreground color */
+    "#151515", /* default background color */
 };
-
 
 /*
  * Default colors (colorname index)
@@ -257,7 +258,7 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ MODKEY,              	XK_equal,       zoom,           {.f = +1} },
 	{ MODKEY,            	XK_minus,        zoom,           {.f = -1} },
-	{ ControlMask,              XK_equal,        zoomreset,      {.f =  0} },
+	{ ControlMask,          XK_equal,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },
@@ -268,8 +269,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_L,           copyurl,        {.i =  1} },
-	{ MODKEY,               XK_u,           kscrollup,      {.i = 1} },
-	{ MODKEY,               XK_d,           kscrolldown,    {.i = 1} },
+	{ MODKEY,               XK_u,           kscrollup,      {.i = +1} },
+	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
 };
 
 /*
