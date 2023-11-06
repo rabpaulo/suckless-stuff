@@ -13,21 +13,21 @@ static const int showsystray        = 1;        /* 0 means no systray */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 
-static const unsigned int gappih    = 6;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 6;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 6;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 6;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 4;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 4;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 4;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 4;       /* vert outer gap between windows and screen edge */
 
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const char *fonts[]          = { "Mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=12:autohint=true"};
+static const char *fonts[]          = { "Mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
 
 static const char background[]             = "#151515";
 static const char titlecolor[]             = "#d0d0d0";
 static const char foreground[]             = "#005577";
-static const char border[]		   = "#d0d0d0";
+static const char border[]		   = "#005577";
 static const char inacborder[]		   = "#000000";
 
 static const char *colors[][3] = {
@@ -114,17 +114,14 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
-
+	{ MODKEY,			XK_bracketleft,		spawn,		SHCMD("cmus-remote -R") },
 	{ MODKEY,			XK_bracketleft,		spawn,		SHCMD("cmus-remote -r") },
 	{ MODKEY,			XK_bracketright,	spawn,		SHCMD("cmus-remote -n") },
 	{ MODKEY,			XK_equal,	spawn,		SHCMD("cmus-remote -v +10%") },
 	{ MODKEY,			XK_minus,	spawn,		SHCMD("cmus-remote -v -10%") },
 	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ "cmusmediacontrol", NULL } } },	
-	{ MODKEY|ShiftMask,		XK_b,		spawn,		{.v = (const char*[]){ "bcn", NULL } } },	
 	{ MODKEY|ShiftMask,		XK_s,		spawn,		{.v = (const char*[]){ "bookmarks", NULL } } },	
-	{ MODKEY|ShiftMask,		XK_m,		spawn,		{.v = (const char*[]){ "mpvplay.sh", NULL } } },	
 	{ MODKEY|ShiftMask,		XK_p,		spawn,		{.v = (const char*[]){ "turnoffmenu.sh", NULL } } },	
-	{ MODKEY|ShiftMask,		XK_a,		spawn,		{.v = (const char*[]){ "record", NULL } } },	
 	{ MODKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ "mouseacell.sh", NULL } } },	
 	{ MODKEY,			XK_s,		spawn,		{.v = (const char*[]){ "screenshots.sh", NULL } } },	
 	{ MODKEY,                       XK_d,      	spawn,          {.v = dmenucmd } },
@@ -167,7 +164,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ShiftMask,			XK_a,		togglegaps,	{0} },
+	{ MODKEY|ShiftMask,		XK_a,		togglegaps,	{0} },
 	{ MODKEY|ShiftMask,    XK_u,     incrgaps,       {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_i,    incrigaps,      {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_o,    incrogaps,      {.i = -1 } },
@@ -176,6 +173,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_8,    incrohgaps,     {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_9,    incrovgaps,     {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_0,    defaultgaps,    {0} },
+
 };
 
 /* button definitions */

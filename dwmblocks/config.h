@@ -3,11 +3,9 @@
 static const Block blocks[] = {
     /*Icon*/	/*Command*/			/*Update Interval*/	/*Update Signal*/
     {"", "~/.local/bin/sb/cmus.sh", 		2,	0},
-    {"", "~/.local/bin/sb/keeblayout.sh", 	1,	0},
     {"", "~/.local/bin/sb/airpods", 		30,	0},
     {"", "~/.local/bin/sb/micebattery.sh", 	20,	0},
-    {"", "~/.local/bin/sb/nettraf", 		10,	0},
-    {"", "date '+%R %a, %d %b'",		2,	0}
+    {"", "date '+%R %a, %d %b'",		2,	0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.

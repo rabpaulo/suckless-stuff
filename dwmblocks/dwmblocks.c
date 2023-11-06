@@ -14,7 +14,7 @@
 #define SIGMINUS		SIGRTMIN
 #endif
 #define LENGTH(X)               (sizeof(X) / sizeof (X[0]))
-#define CMDLENGTH		50
+#define CMDLENGTH		500
 #define MIN( a, b ) ( ( a < b) ? a : b )
 #define STATUSLENGTH (LENGTH(blocks) * CMDLENGTH + 1)
 
@@ -48,7 +48,7 @@ static void (*writestatus) () = pstdout;
 #endif
 
 
-#include "blocks.h"
+#include "config.h"
 
 static char statusbar[LENGTH(blocks)][CMDLENGTH] = {0};
 static char statusstr[2][STATUSLENGTH];

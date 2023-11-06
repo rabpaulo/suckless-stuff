@@ -1295,11 +1295,12 @@ manage(Window w, XWindowAttributes *wa)
 	updatewmhints(c);
 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
 	grabbuttons(c, 0);
+
 	if (!c->isfloating)
 		c->isfloating = c->oldstate = trans != None || c->isfixed;
 	if (c->isfloating)
 		XRaiseWindow(dpy, c->win);
-	if( attachbelow )
+	if ( attachbelow)
 		attachbelow(c);
 	else
 		attach(c);
@@ -1438,6 +1439,7 @@ movemouse(const Arg *arg)
 		focus(NULL);
 	}
 }
+
 
 Client *
 nexttiled(Client *c)
