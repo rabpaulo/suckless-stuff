@@ -10,7 +10,7 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
 
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 
 static const unsigned int gappih    = 4;       /* horiz inner gap between windows */
@@ -51,7 +51,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4"};
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -119,9 +119,9 @@ static const Key keys[] = {
 	{ MODKEY,			XK_bracketright,	spawn,		SHCMD("cmus-remote -n") },
 	{ MODKEY,			XK_equal,	spawn,		SHCMD("cmus-remote -v +10%") },
 	{ MODKEY,			XK_minus,	spawn,		SHCMD("cmus-remote -v -10%") },
+	{ MODKEY|ShiftMask,		XK_a,		spawn,		{.v = (const char*[]){ "record", NULL } } },	
 	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ "cmusmediacontrol", NULL } } },	
 	{ MODKEY|ShiftMask,		XK_s,		spawn,		{.v = (const char*[]){ "bookmarks", NULL } } },	
-	{ MODKEY|ShiftMask,		XK_p,		spawn,		{.v = (const char*[]){ "turnoffmenu.sh", NULL } } },	
 	{ MODKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ "mouseacell.sh", NULL } } },	
 	{ MODKEY,			XK_s,		spawn,		{.v = (const char*[]){ "screenshots.sh", NULL } } },	
 	{ MODKEY,                       XK_d,      	spawn,          {.v = dmenucmd } },
@@ -129,8 +129,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,     	 togglebar,      {0} },
 	{ MODKEY,                       XK_j,     	 focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,     	 focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_i,     	 incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_d,     	 incnmaster,     {.i = -1 } },
+//	{ MODKEY|ShiftMask,             XK_i,     	 incnmaster,     {.i = +1 } },
+//	{ MODKEY|ShiftMask,             XK_d,     	 incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,     	 setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,     	 setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_j,     	 movestack,      {.i = +1 } },
@@ -158,21 +158,16 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ShiftMask,		XK_a,		togglegaps,	{0} },
-	{ MODKEY|ShiftMask,    XK_u,     incrgaps,       {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_i,    incrigaps,      {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_o,    incrogaps,      {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_6,    incrihgaps,     {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_7,    incrivgaps,     {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_8,    incrohgaps,     {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_9,    incrovgaps,     {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_0,    defaultgaps,    {0} },
+	{ MODKEY|ShiftMask,		XK_u,		togglegaps,	{0} },
+	{ MODKEY|ShiftMask,   	 XK_u,     incrgaps,       {.i = -1 } },
+	{ MODKEY|ShiftMask,   	 XK_i,    incrigaps,      {.i = -1 } },
+	{ MODKEY|ShiftMask,   	 XK_o,    incrogaps,      {.i = -1 } },
+	{ MODKEY|ShiftMask,   	 XK_6,    incrihgaps,     {.i = -1 } },
+	{ MODKEY|ShiftMask,   	 XK_7,    incrivgaps,     {.i = -1 } },
+	{ MODKEY|ShiftMask,   	 XK_8,    incrohgaps,     {.i = -1 } },
+	{ MODKEY|ShiftMask,   	 XK_9,    incrovgaps,     {.i = -1 } },
+	{ MODKEY|ShiftMask,   	 XK_0,    defaultgaps,    {0} },
 
 };
 
