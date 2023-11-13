@@ -121,7 +121,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_minus,	spawn,		SHCMD("cmus-remote -v -10%") },
 	{ MODKEY|ShiftMask,		XK_a,		spawn,		{.v = (const char*[]){ "record", NULL } } },	
 	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ "cmusmediacontrol", NULL } } },	
-	{ MODKEY|ShiftMask,		XK_s,		spawn,		{.v = (const char*[]){ "bookmarks", NULL } } },	
+	{ MODKEY|ShiftMask,		XK_b,		spawn,		{.v = (const char*[]){ "bookmarks", NULL } } },	
 	{ MODKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ "mouseacell.sh", NULL } } },	
 	{ MODKEY,			XK_s,		spawn,		{.v = (const char*[]){ "screenshots.sh", NULL } } },	
 	{ MODKEY,                       XK_d,      	spawn,          {.v = dmenucmd } },

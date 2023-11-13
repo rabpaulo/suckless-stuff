@@ -1300,7 +1300,7 @@ manage(Window w, XWindowAttributes *wa)
 		c->isfloating = c->oldstate = trans != None || c->isfixed;
 	if (c->isfloating)
 		XRaiseWindow(dpy, c->win);
-	if ( attachbelow)
+	if ( attachbelow )
 		attachbelow(c);
 	else
 		attach(c);
