@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
 static char *font2[] = { "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 1;
 
@@ -114,14 +114,14 @@ float alpha = 0.9;
 
 static const char *colorname[] = {
     /* 8 normal colors */
-    "#222222",
+    "#000000",
     "#ac4142",
     "#90a959",
     "#f4bf75",
     "#6a9fb5",
     "#aa759f",
     "#75b5aa",
-    "#d0d0d0",
+    "#ffffff",
 
     /* 8 bright colors */
     "#505050",
@@ -136,7 +136,7 @@ static const char *colorname[] = {
     [255] = 0,
 
     /* more colors can be added after 255 to use with DefaultXX */
-    "#cccccc",
+    "#ffffff",
     "#555555",
     "#d0d0d0", /* default foreground color */
     "#151515", /* default background color */
@@ -237,9 +237,9 @@ ResourcePref resources[] = {
 
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ XK_ANY_MOD,            Button4, kscrollup,      {.i = 1} },
-	{ XK_ANY_MOD,            Button5, kscrolldown,    {.i = 1} },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+	{ XK_ANY_MOD,           Button4, kscrollup,      {.i = -1} },
+	{ XK_ANY_MOD,           Button5, kscrolldown,    {.i = -1} },
 //	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 //	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
 //	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
@@ -250,9 +250,6 @@ static MouseShortcut mshortcuts[] = {
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
-static char *openurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -o", "externalpipe", NULL };
-static char *copyurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -c", "externalpipe", NULL };
-static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -273,11 +270,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_L,           copyurl,        {.i =  1} },
-	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
-	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
-	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
-	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
-	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+	{ MODKEY,               XK_u,           kscrollup,      {.i =	1} },
+	{ MODKEY,               XK_d,           kscrolldown,    {.i =	1} },
 };
 
 /*
