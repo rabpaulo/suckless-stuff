@@ -22,12 +22,12 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const char *fonts[]          = { " mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
 
-static const char background[] = "#0b0d0f";
-static const char titlecolor[] = "#dddbd9";
-static const char activecolor[] ="#dddbd9";
-static const char foreground[] = "#87656a";
-static const char border[]     = "#999999";
-static const char inacborder[] = "#000000";
+static const char background[] = "#222222";
+static const char titlecolor[] = "#bbbbbb";
+static const char activecolor[] ="#bbbbbb";
+static const char foreground[] = "#005577";
+static const char border[]     = "#005577";
+static const char inacborder[] = "#444444";
 
 static const char *colors[][3] = {
     [SchemeNorm] = { titlecolor, background, inacborder }, // Unfocused window
