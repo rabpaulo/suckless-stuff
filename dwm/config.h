@@ -4,7 +4,7 @@
 
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 1;   /* systray spacing */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
 
@@ -20,13 +20,13 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const char *fonts[]          = { " mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
+static const char *fonts[]          = { "jetbrains mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
 
 static const char background[] = "#222222";
 static const char titlecolor[] = "#bbbbbb";
 static const char activecolor[] ="#bbbbbb";
 static const char foreground[] = "#005577";
-static const char border[]     = "#005577";
+static const char border[]     = "#800000";
 static const char inacborder[] = "#444444";
 
 static const char *colors[][3] = {
@@ -68,6 +68,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* no layout function means floating behavior */ 
 	{ "TTT",      bstack }, /* first entry is default */
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
 	{ "H[]",      deck },
 	{ "><>",      NULL },   
 	{ "[@]",      spiral },	
@@ -77,7 +78,6 @@ static const Layout layouts[] = {
 	{ "###",      nrowgrid },
 	{ "---",      horizgrid },
 	{ ":::",      gaplessgrid },
-	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
 	{ NULL,       NULL },
 };
@@ -114,9 +114,10 @@ static const Key keys[] = {
 	{ MODKEY,		XK_F5,		spawn,		SHCMD("setsid -f st -n pulsemixer -g 120x40 -e pulsemixer") }, 
 	{ MODKEY,		XK_F4,		spawn,		SHCMD("setsid -f st -n pulsemixer -g 120x40 -e btop") }, 
 
-	{ MODKEY,		XK_F12,		spawn,		SHCMD("slock") }, 
-
-	{ MODKEY|ShiftMask,	XK_a,		spawn,		{.v = (const char*[]){ "record", NULL } } },	
+	{ MODKEY,		XK_F12,		spawn,		SHCMD("mounter") }, 
+	{ MODKEY,		XK_p,		spawn,		SHCMD("passmenu") }, 
+	{ MODKEY,		XK_c,		spawn,		SHCMD("clipmenu") }, 
+	{ MODKEY|ShiftMask,	XK_a,		spawn,		{.v = (const char*[]){ "dmenurecord", NULL } } },	
 	{ MODKEY,		XK_b,		spawn,		{.v = (const char*[]){ "bookmarks", NULL } } },	
 	{ MODKEY|ShiftMask,	XK_r,		spawn,		{.v = (const char*[]){ "mouseacell.sh", NULL } } },	
 	{ MODKEY,		XK_s,		spawn,		{.v = (const char*[]){ "screenshots.sh", NULL } } },	
@@ -138,6 +139,7 @@ static const Key keys[] = {
 	{ MODKEY,               XK_t,     	setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,          	XK_y,     	setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,               XK_u,     	setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,     XK_u,     	setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,	XK_space, 	zoom,      {0} },
 	{ MODKEY,             	XK_space, 	togglefloating, {0} },
 

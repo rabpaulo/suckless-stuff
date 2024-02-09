@@ -1,5 +1,6 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 
+curl -s wttr.in/fortaleza\?format\="+%%C%%20%%t(%%f)%%60&period=60" | sed 's/+//g'
 static const Block blocks[] = {
     /*Icon*/	/*Command*/			/*Update Interval*/	/*Update Signal*/
     {"", "~/.local/bin/sb/cmus.sh", 		2,	0},
