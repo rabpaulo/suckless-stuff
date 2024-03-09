@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "jetbrains mono:pixelsize=12:antialias=true:autohint=true";
 static char *font2[] = { "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 1;
 
@@ -112,42 +112,48 @@ float alpha = 0.96;
 
 /* Terminal colors (16 first used in escape sequence) */
 /* Terminal colors (16 first used in escape sequence) */
+/* Terminal colors (16 first used in escape sequence) */
+/* Terminal colors (16 first used in escape sequence) */
+/* Terminal colors (16 first used in escape sequence) */
+/* Terminal colors (16 first used in escape sequence) */
+/* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
 
-	"#928374",
-	"#fb6150",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
-	[255] = 0,
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
+  /* 8 normal colors */
+  [0] = "#1e1e1e", /* black   */
+  [1] = "#f44747", /* red     */
+  [2] = "#608b4e", /* green   */
+  [3] = "#dcdcaa", /* yellow  */
+  [4] = "#569cd6", /* blue    */
+  [5] = "#c678dd", /* magenta */
+  [6] = "#56b6c2", /* cyan    */
+  [7] = "#d4d4d4", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#808080", /* black   */
+  [9]  = "#f44747", /* red     */
+  [10] = "#608b4e", /* green   */
+  [11] = "#dcdcaa", /* yellow  */
+  [12] = "#569cd6", /* blue    */
+  [13] = "#c678dd", /* magenta */
+  [14] = "#56b6c2", /* cyan    */
+  [15] = "#d4d4d4", /* white   */
+
+  /* special colors */
+  [256] = "#1e1e1e", /* background */
+  [257] = "#d4d4d4", /* foreground */
 };
-
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultfg = 259;
-unsigned int defaultbg = 258;
-unsigned int defaultcs = 256;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+unsigned int defaultcs = 257;
+
+
 unsigned int defaultrcs = 257;
-unsigned int background = 258;
 
 /*
  * https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q.1D81

@@ -3,7 +3,7 @@
 static const Block blocks[] = {
     /*Icon*/	/*Command*/			/*Update Interval*/	/*Update Signal*/
     {"", "~/.local/bin/sb/cmus.sh", 		2,	0},
-    {"Ram ", "free -h | awk '/^Mem/ {print $3}' | sed 's/Gi/G/g'",	 	10,	0},
+    {"ram ", "free -h | awk '/^Mem/ {print $3}' | sed 's/Gi/G/g'",	 	10,	0},
     {"", "~/.local/bin/sb/buds", 		30,	0},
     {"", "date '+%R %a, %d %b'",		2,	0},
 };

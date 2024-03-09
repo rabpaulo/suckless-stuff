@@ -20,17 +20,16 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const char *fonts[]          = { "mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
+static const char *fonts[]          = { "jetbrains mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
 
-static const char background[] = "#222222";
-static const char titlecolor[] = "#bbbbbb";
-static const char activecolor[] ="#bbbbbb";
-static const char foreground[] = "#005577";
-static const char border[]     = "#800000";
-static const char inacborder[] = "#444444";
+static const char background[]  = "#000000";
+static const char titlecolor[]  = "#bbbbbb";
+static const char activecolor[] = "#eeeeee";
+static const char foreground[]  = "#000000";
+static const char border[]      = "#999999";
 
 static const char *colors[][3] = {
-    [SchemeNorm] = { titlecolor, background, inacborder }, // Unfocused window
+    [SchemeNorm] = { titlecolor, background, background }, // Unfocused window
     [SchemeSel] = { activecolor, foreground, border },    // Focused window
 };
 
@@ -42,6 +41,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	*/
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+      	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "TelegramDesktop", 	NULL,       "Media viewer",         0,       1,      -1 },
 	{ "Toolkit", 	NULL,       "Picture-in-Picture",         0,       1,      -1 },
 	{ "firefox",  	NULL,       "Picture-in-Picture",         0,       1,      -1 },
@@ -115,8 +115,8 @@ static const Key keys[] = {
 	{ MODKEY,		XK_F4,		spawn,		SHCMD("setsid -f st -n pulsemixer -g 120x40 -e btop") }, 
 
 	{ MODKEY,		XK_F12,		spawn,		SHCMD("mounter") }, 
+
 	{ MODKEY,		XK_p,		spawn,		SHCMD("passmenu") }, 
-	{ MODKEY,		XK_c,		spawn,		SHCMD("clipmenu") }, 
 	{ MODKEY|ShiftMask,	XK_a,		spawn,		{.v = (const char*[]){ "dmenurecord", NULL } } },	
 	{ MODKEY,		XK_b,		spawn,		{.v = (const char*[]){ "bookmarks", NULL } } },	
 	{ MODKEY|ShiftMask,	XK_r,		spawn,		{.v = (const char*[]){ "mouseacell.sh", NULL } } },	
@@ -180,6 +180,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_0,		tag,		{.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_q,      	 quit,         		{0} },
 	{ MODKEY|ShiftMask,		XK_u,		 togglegaps,		{0} },
+
+//      { MODKEY,		XK_z,		incrgaps,	{.i = +2 } },
+//	{ MODKEY,		XK_x,		incrgaps,	{.i = -2 } },
 
 	{ MODKEY|ShiftMask,             XK_minus,     	 incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_minus,     	 incnmaster,     {.i = -1 } },
