@@ -20,16 +20,17 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const char *fonts[]          = { "jetbrains mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
+static const char *fonts[]          = { "mono:size=8:antilias=true:autohint=true",  "NotoColorEmoji:pixelsize=10:autohint=true"};
 
 static const char background[]  = "#000000";
 static const char titlecolor[]  = "#bbbbbb";
 static const char activecolor[] = "#eeeeee";
 static const char foreground[]  = "#000000";
-static const char border[]      = "#999999";
+static const char inacborder[]  = "#1e1e1e";
+static const char border[] 	= "#999999";
 
 static const char *colors[][3] = {
-    [SchemeNorm] = { titlecolor, background, background }, // Unfocused window
+    [SchemeNorm] = { titlecolor, background, inacborder }, // Unfocused window
     [SchemeSel] = { activecolor, foreground, border },    // Focused window
 };
 
